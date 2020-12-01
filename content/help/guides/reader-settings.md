@@ -4,7 +4,7 @@ description: Reader settings for Tachiyomi.
 lang: en-US
 ---
 
-import {Carousel,Slide} from 'vue-carousel'
+import Carousel from '~/components/carousel/Carousel.vue'
 
 # Reader settings
 This section relates to the reading experience in the app and navigating the reader.
@@ -58,30 +58,23 @@ This allows you to control how the screen is going to be oriented.
 ## Background color `<Badge text="Black" type="default-indicator" vertical="middle" />`
 This allows you to control what color the background should be in reader. Background color can either be **Black**, **Gray** or
 **White**.
-
-<Carousel name="carousel-background-color">
-    <Slide>
-        <figure class="centered">
-	        <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-	        <h4>Black</h4>
-	        <p>Surrounds page with black. With an AMOLED screen you can save battery by using this.</p>
-        </figure>
-    </Slide>
-    <Slide>
-        <figure class="centered">
-	        <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-	        <h4>Gray</h4>
-	        <p>Surrounds page with gray.</p>
-        </figure>
-    </Slide>
-    <Slide>
-        <figure class="centered">
-	        <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-	        <h4>White</h4>
-	        <p>Surrounds page with white. Makes pages seemless with the screen.</p>
-        </figure>
-    </Slide>
-</Carousel>
+<Carousel v-bind:items="[
+    {
+        title: 'Black', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+        desc: 'Surrounds page with black. With an AMOLED screen you can save battery by using this.'
+    },
+    {
+        title: 'Gray', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+        desc: 'Surrounds page with gray.'
+    },
+    {
+        title: 'White', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+        desc: 'Surrounds page with white. Makes pages seemless with the screen.'
+    }
+]" />
 
 ## Fullscreen `<Badge text="True" type="default-indicator" vertical="middle" />`
 This setting specifies if the notification and navigation bar are to be hidden while in the reader.
@@ -111,47 +104,34 @@ Scale type lets you choose how the page fits in your screen.
 
 All examples are illustrations and may not reflect what actually happens.
 
-<Carousel name="carousel-scale-type">
-    <Slide>
-        <figure class="centered">
-	        <h4>Fit screen</h4>
-	        <p>Will fit either to width or height depending on image resolution</p>
-	        <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-        </figure>
-    </Slide>
-    <Slide>
-        <figure class="centered">
-	        <h4>Stretch</h4>
-	        <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-        </figure>
-    </Slide>
-    <Slide>
-        <figure class="centered">
-	        <h4>Fit width</h4>
-	        <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-        </figure>
-    </Slide>
-    <Slide>
-        <figure class="centered">
-	        <h4>Fit height</h4>
-	        <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-        </figure>
-    </Slide>
-    <Slide>
-        <figure class="centered">
-	        <h4>Original size</h4>
-	        <p>Will be either zoom in or out depending on image resolution</p>
-	        <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-        </figure>
-    </Slide>
-    <Slide>
-        <figure class="centered">
-	        <h4>Smart fit</h4>
-	        <p>Fits to the longest side of the image</p>
-	        <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-        </figure>
-    </Slide>
-</Carousel>
+<Carousel v-bind:items="[
+    {
+        title: 'Fit screen', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+    },
+    {
+        title: 'Stretch', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+    },
+    {
+        title: 'Fit width', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+    },
+    {
+        title: 'Fit height', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+    },
+    {
+        title: 'Original size', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+        desc: 'Will be either zoom in or out depending on image resolution'
+    },
+    {
+        title: 'Smart fit', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+        desc: 'Fits to the longest side of the image'
+    }
+]" />
 
 ::: c-tip
 You can change scale type when reading a chapter. Tap the middle of the screen, press the gear icon at the top, select a different scale type under **Scale type**. This will change Scale type for all series.
@@ -165,29 +145,23 @@ Tachiyomi will start on that zoomed in page.
 
 All examples are illustrations
 
-<Carousel name="carousel-zoom-start-position">
-    <Slide>
-        <figure class="centered">
-	        <h4>Left</h4>
-	        <p>Will start at the left side of the page.</p>
-	        <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-        </figure>
-    </Slide>
-    <Slide>
-        <figure class="centered">
-	        <h4>Right</h4>
-	        <p>Will start at the right side of the page.</p>
-            <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-        </figure>
-    </Slide>
-    <Slide>
-        <figure class="centered">
-	        <h4>Center</h4>
-	        <p>Will start at the center of the page.</p>
-            <img height="400" intrinsicsize="208x500" width="260" src="https://tachiyomi.org/icons/logo.svg">
-        </figure>
-    </Slide>
-</Carousel>
+<Carousel v-bind:items="[
+    {
+        title: 'Left', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+        desc: 'Will start at the left side of the page.'
+    },
+    {
+        title: 'Right', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+        desc: 'Will start at the right side of the page.'
+    },
+    {
+        title: 'Center', 
+        image: 'https://tachiyomi.org/icons/logo.svg', 
+        desc: 'Will start at the center of the page.'
+    }
+]" />
 
 ## Crop borders `<Badge text="False" type="default-indicator" vertical="middle" />`
 Tries to remove excess white borders
