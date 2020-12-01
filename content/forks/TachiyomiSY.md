@@ -1,5 +1,4 @@
 ---
-layout: ForkPage
 title: TachiyomiSY
 metaTitle: TachiyomiSY
 description: This fork adds quite a few custom unique features, it also has new features from the latest Tachiyomi version as well as from other forks such as TachiyomiJ2K.
@@ -14,15 +13,15 @@ meta:
 sidebar: false
 ---
 
-# <img class="headerLogo" :src="$withBase('/assets/forks_logo-sy.png')"> TachiyomiSY
+# ![Alternative text](https://tachiyomi.org/icons/logo.svg) TachiyomiSY
 
-<ForkButtons forkName="TachiyomiSY" downloadForkLink="https://api.github.com/repos/jobobby04/TachiyomiSY/releases/latest" downloadForkStyle="background-color:#BE0F6E;color:#FFFFFF;" githubForkLink="https://github.com/jobobby04/TachiyomiSY"/>
+`<ForkButtons forkName="TachiyomiSY" downloadForkLink="https://api.github.com/repos/jobobby04/TachiyomiSY/releases/latest" downloadForkStyle="background-color:#BE0F6E;color:#FFFFFF;" githubForkLink="https://github.com/jobobby04/TachiyomiSY"/>`
 
 ## About
 This fork is based off of [TachiyomiAZ](/forks/TachiyomiAZ) and adds quite a few custom unique features, it also has new features from the latest **Tachiyomi** version as well as from other forks such as [TachiyomiJ2K](/forks/TachiyomiJ2K).
 
 ## Screenshots
-<img class="zoomable" :src="$withBase('/assets/forks_banner-sy.png')"/>
+`<img class="zoomable" :src="$withBase('/assets/forks_banner-sy.png')"/>`
 
 ## Features
 - Uses the new **Tachiyomi** UI

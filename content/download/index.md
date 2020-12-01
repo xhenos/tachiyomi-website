@@ -9,8 +9,11 @@ meta:
 lang: en-US
 ---
 
+import DownloadButtons from '~/components/download/DownloadButtons.vue'
+import WhatsNew from '~/components/download/WhatsNew.vue'
+
 # Download
-Download the latest stable version of **Tachiyomi** that released <ReleaseDate stable /> or the preview version that released <ReleaseDate preview />.
+Download the latest stable version of **Tachiyomi** that released `<ReleaseDate stable />` or the preview version that released `<ReleaseDate preview />`.
 
 <DownloadButtons />
 

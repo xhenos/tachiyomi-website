@@ -1,5 +1,4 @@
 ---
-layout: ForkPage
 title: TachiyomiAZ
 metaTitle: TachiyomiAZ
 description: This hentai focused fork is based off of TachiyomiEH, it has most features and fixes from Tachiyomi, as well as features from TachiyomiJ2K.
@@ -13,6 +12,7 @@ meta:
     content: "#FFCC4D"
 sidebar: false
 ---
+```css
 <style lang="css">
 @font-face {font-family: "Comic Sans MS"; src: url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.eot"); src: url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.woff") format("woff"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.svg#Comic Sans MS") format("svg"); }
 
@@ -79,10 +79,12 @@ sidebar: false
   100% {color: hsl(360, 100%, 50%)}
 }
 </style>
+```
 
-# <img class="headerLogo" :src="$withBase('/assets/forks_logo-az.png')"> TachiyomiAZ
+# ![Alternative text](https://tachiyomi.org/icons/logo.svg) TachiyomiAZ
 
-<ForkButtons forkName="TachiyomiAZ" downloadForkLink="https://api.github.com/repos/az4521/TachiyomiAZ/releases/latest" downloadForkStyle="background-color:#FFCC4D;color:#000000;" githubForkLink="https://github.com/az4521/TachiyomiAZ"/>
+`<ForkButtons forkName="TachiyomiAZ" downloadForkLink="https://api.github.com/repos/az4521/TachiyomiAZ/releases/latest" downloadForkStyle="background-color:#FFCC4D;color:#000000;" githubForkLink="https://github.com/az4521/TachiyomiAZ"/>`
+```
 <div class="overflowContainer">
   <div class="textLoop">
     <div class="textWiggle">
@@ -90,6 +92,7 @@ sidebar: false
     </div>
   </div>
 </div>
+```
 
 ## Introduction
 **TachiyomiAZ** is maintained by **[az4521](https://github.com/az4521)** and [Syer10](https://github.com/jobobby04).
@@ -137,4 +140,4 @@ This hentai focused fork is based off of **[TachiyomiEH](/forks/TachiyomiEH)**, 
 - Grid view corner rounding configuration
 - Manga recommendations
 
-<img class="zoomable" :src="$withBase('/assets/forks_gunz-az.png')">
+`<img class="zoomable" :src="$withBase('/assets/forks_gunz-az.png')">`

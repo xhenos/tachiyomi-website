@@ -14,7 +14,7 @@ Follow the steps below to create local manga.
 	<ul>
   		<li>Optional: If adding manga in folders, add a file named `.nomedia` to the local folder so images do not show up in the gallery</li>
 	</ul> 
-1. You can then access the manga in <Navigation item="browse"/> → **Local source**.
+1. You can then access the manga in `<Navigation item="browse"/>` → **Local source**.
 
 If you add more chapters then you'll have to manually refresh the chapter list (by pulling down the list).
 
@@ -91,7 +91,7 @@ The path to the folder with images must contain both the manga title and the cha
 <figure class="centered">
 	<h4>Example structure using the file manager</h4>
 	<p>Here, the manga name is <strong>test</strong> so the file structure is <code>/Tachiyomi/local/test/ch1/images</code>.</p>
-	<img class="zoomable" height="300" :src="$withBase('/assets/guides_local-manga.jpg')">
+	<img class="zoomable" height="300" src="https://tachiyomi.org/icons/logo.svg">
 </figure>
 :::
 

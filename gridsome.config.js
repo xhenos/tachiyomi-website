@@ -87,6 +87,14 @@ module.exports = {
       use: '@gridsome/plugin-sitemap',
       options: {
       }
+    },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'MarkdownPage',
+        baseDir: './content',
+        template: './src/templates/MarkdownPage.vue'
+      }
     }
 
   ]

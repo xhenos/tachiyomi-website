@@ -1,5 +1,4 @@
 ---
-layout: ForkPage
 title: TachiyomiJ2K
 metaTitle: TachiyomiJ2K
 description: This fork takes a new approach to the design of the base app along with several other enhancements.
@@ -14,16 +13,16 @@ meta:
 sidebar: false
 ---
 
-# <img class="headerLogo" :src="$withBase('/assets/forks_logo-j2k.png')"> TachiyomiJ2K
+# ![Alternative text](https://tachiyomi.org/icons/logo.svg) TachiyomiJ2K
 
-<ForkButtons forkName="TachiyomiJ2K" downloadForkLink="https://api.github.com/repos/Jays2Kings/tachiyomiJ2K/releases/latest" githubForkLink="https://github.com/Jays2Kings/tachiyomiJ2K" androidVersion="6.0"/>
+`<ForkButtons forkName="TachiyomiJ2K" downloadForkLink="https://api.github.com/repos/Jays2Kings/tachiyomiJ2K/releases/latest" githubForkLink="https://github.com/Jays2Kings/tachiyomiJ2K" androidVersion="6.0"/>`
 
 ## Introduction
 **TachiyomiJ2K** is maintained by **[Jays2Kings](https://github.com/Jays2Kings)**.
 
 This fork takes a new approach to the design of the base app along with several other enhancements.
 
-<img class="zoomable" :src="$withBase('/assets/forks_banner-j2k.png')"/>
+`<img class="zoomable" :src="$withBase('/assets/forks_banner-j2k.png')"/>`
 
 ## Features
 ::: videolink
