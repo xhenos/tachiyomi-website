@@ -47,22 +47,22 @@ module.exports = {
     ]
   },
   plugins: [
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        baseDir: './content',
-        path: '**/*.md',
-        typeName: 'MarkdownPage',
-        remark: {
-          externalLinksTarget: '_blank',
-          externalLinksRel: ['noopener', 'noreferrer'],
-          plugins: [
-            '@gridsome/remark-prismjs'
-          ]
-        }
-      }
-    },
-
+    // This seems to be replace by @gridsome/vue-remark
+    // { 
+    //   use: '@gridsome/source-filesystem',
+    //   options: {
+    //     baseDir: './content',
+    //     path: '**/*.md',
+    //     typeName: 'MarkdownPage',
+    //     remark: {
+    //       externalLinksTarget: '_blank',
+    //       externalLinksRel: ['noopener', 'noreferrer'],
+    //       plugins: [
+    //         '@gridsome/remark-prismjs'
+    //       ]
+    //     }
+    //   }
+    // },
     {
       use: 'gridsome-plugin-tailwindcss',
       options: {
