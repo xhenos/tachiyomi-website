@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-gray-200 dark:bg-gray-800 rounded-lg p-8">
+	<div class="bg-ui-container rounded-lg p-8">
 		<h2>Whats New</h2>
 		<div v-html="marked" />
 	</div>
