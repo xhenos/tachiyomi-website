@@ -1,11 +1,12 @@
 ---
+# Page title and opening header
 title: Extensions
-description: Need help with something? Most of your issues can probably be solved from this page.
+description: Need help with something? Most of your issues can probably be
+  solved from this page.
 sidebar: default
 prev: /help/faq/settings/
 next: /help/faq/sources/
 ---
-
 import Tabs from "~/components/Tabs.vue";
 import Tab from "~/components/Tab.vue";
 
