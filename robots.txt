@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https:/tachiyomi.org/sitemap.xml
-Host: https://tachiyomi.org
