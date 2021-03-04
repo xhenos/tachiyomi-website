@@ -34,18 +34,6 @@ eval("var toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-obje
 
 /***/ }),
 
-/***/ "Rm1S":
-/*!*********************************************************!*\
-  !*** ./node_modules/core-js/modules/es.string.match.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nvar fixRegExpWellKnownSymbolLogic = __webpack_require__(/*! ../internals/fix-regexp-well-known-symbol-logic */ \"14Sl\");\nvar anObject = __webpack_require__(/*! ../internals/an-object */ \"glrk\");\nvar toLength = __webpack_require__(/*! ../internals/to-length */ \"UMSQ\");\nvar requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ \"HYAF\");\nvar advanceStringIndex = __webpack_require__(/*! ../internals/advance-string-index */ \"iqWW\");\nvar regExpExec = __webpack_require__(/*! ../internals/regexp-exec-abstract */ \"FMNM\");\n\n// @@match logic\nfixRegExpWellKnownSymbolLogic('match', 1, function (MATCH, nativeMatch, maybeCallNative) {\n  return [\n    // `String.prototype.match` method\n    // https://tc39.es/ecma262/#sec-string.prototype.match\n    function match(regexp) {\n      var O = requireObjectCoercible(this);\n      var matcher = regexp == undefined ? undefined : regexp[MATCH];\n      return matcher !== undefined ? matcher.call(regexp, O) : new RegExp(regexp)[MATCH](String(O));\n    },\n    // `RegExp.prototype[@@match]` method\n    // https://tc39.es/ecma262/#sec-regexp.prototype-@@match\n    function (regexp) {\n      var res = maybeCallNative(nativeMatch, regexp, this);\n      if (res.done) return res.value;\n\n      var rx = anObject(regexp);\n      var S = String(this);\n\n      if (!rx.global) return regExpExec(rx, S);\n\n      var fullUnicode = rx.unicode;\n      rx.lastIndex = 0;\n      var A = [];\n      var n = 0;\n      var result;\n      while ((result = regExpExec(rx, S)) !== null) {\n        var matchStr = String(result[0]);\n        A[n] = matchStr;\n        if (matchStr === '') rx.lastIndex = advanceStringIndex(S, toLength(rx.lastIndex), fullUnicode);\n        n++;\n      }\n      return n === 0 ? null : A;\n    }\n  ];\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js/modules/es.string.match.js?");
-
-/***/ }),
-
 /***/ "TeQF":
 /*!*********************************************************!*\
   !*** ./node_modules/core-js/modules/es.array.filter.js ***!
