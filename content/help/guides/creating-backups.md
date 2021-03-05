@@ -1,6 +1,7 @@
 ---
 title: Creating backups
-description: Backups can save you a lot of headache in case something happens to your installation or device.
+description: Backups can save you a lot of headache in case something happens to
+  your installation or device.
 cms:
   collection: guides
   slug: creating-backups
@@ -9,7 +10,6 @@ sidebar: default
 prev: /help/guides/source-migration/
 next: /help/guides/reading-local-manga/
 ---
-
 Backups are inter-compatible between **Tachiyomi** versions, with a few exceptions listed under [forks information](#forks-information).
 
 Backups can hold the following information:
@@ -20,7 +20,7 @@ Backups can hold the following information:
 4. **Tracking settings**
 5. **Reading history**
 
-:::guide
+:::guide undefined
 You can do this by going to <Navigation item="more"/> → <Navigation item="settings"/> → <Navigation item="settings_backup"/> and then selecting **Create backup** and select a location to save it.
 :::
 
@@ -38,7 +38,7 @@ Restoring is done from the <Navigation item="settings_backup"/> settings. To res
 
 You can transfer downloaded manga chapters from one version of **Tachiyomi** to another.
 
-:::guide
+:::guide undefined
 You can do this by going to <Navigation item="more"/> → <Navigation item="settings"/> → <Navigation item="settings_downloads"/> and then set the download directory to that of the download folder of your old **Tachiyomi**, then restore the backup.
 :::
 
@@ -46,7 +46,7 @@ You can do this by going to <Navigation item="more"/> → <Navigation item="sett
 
 It is highly recommended you turn on auto backups, this will ensure you can recover if need be.
 
-:::guide
+:::guide undefined
 You can do this by going to <Navigation item="more"/> → <Navigation item="settings"/> → <Navigation item="settings_backup"/> and then setting a **backup frequency**. In the case of a catastrophic failure, at least you will be able to recover.
 :::
 
@@ -58,7 +58,6 @@ You can do this by going to <Navigation item="more"/> → <Navigation item="sett
 </div>
 
 This fork can only restore **MangaDex** entries in a backup. If there are entries from other sources that are a part of that backup then they will not transfer.
-
 
 <div class="contentHeader contentIcon">
     <g-image class="inline align-top" src="/img/forks_logo-az.png" width="28" height="28" fit="contain" immediate />
@@ -73,5 +72,11 @@ This fork can only restore **MangaDex** entries in a backup. If there are entrie
 
 These forks have some built-in extensions, namely: **E-Hentai**, **Hitomi.la**, and **nHentai** for <Navigation item="tachiyomiaz" /> and <Navigation item="tachiyomieh" /> while <Navigation item="tachiyomisy" /> only has **E-Hentai**.
 
+Titles from said extensions will not be restored when restoring a backup made by these forks to standard Tachiyomi. It is possible to restore titles to these forks, but it is not possible to back them up out of these forks.\
+\
+<!--StartFragment-->
 
-Titles from said extensions will not be restored when restoring a backup made by these forks to standard Tachiyomi. It is possible to restore titles to these forks, but it is not possible to back them up out of these forks.
+<!--StartFragment-->
+
+### <img class="forkIconBefore" src="/assets/forks_logo-j2k.png" width="24" height="24" /> [J2K](/forks/TachiyomiJ2K)
+This fork can only restore legacy backups, as it has not made the changes needed to support the new backup yet.
