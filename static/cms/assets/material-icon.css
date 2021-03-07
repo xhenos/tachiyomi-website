@@ -1,0 +1,72 @@
+@font-face {
+	font-family: "Material Icons";
+	font-style: normal;
+	font-weight: 400;
+	src: url(/cms/assets/MaterialIcons-Regular.eot); /* For IE6-8 */
+	src: local("Material Icons"),
+		local("MaterialIcons-Regular"),
+		url(/cms/assets/MaterialIcons-Regular.woff2) format("woff2"),
+		url(/cms/assets/MaterialIcons-Regular.woff) format("woff"),
+		url(/cms/assets/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+.material-icons {
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+
+	/* Support for IE. */
+	font-feature-settings: "liga";
+  }
+
+#NavigationVue.app-navigation {
+	white-space: pre;
+	font-size: 0;
+}
+
+#NavigationVue.app-navigation .app-icon {
+	vertical-align: top;
+	padding-right: .25rem;
+}
+
+#NavigationVue.app-navigation .app-icon, #NavigationVue.app-navigation .app-label {
+	color: var(--color-ui-primary);
+	font-weight: 500;
+	font-size: 1rem;
+}
+
+.material-holder {
+	margin: 0;
+	font-size: .85em;
+	border-radius: 3px;
+	display: inline;
+}
+
+.material-icons {
+	font-size: 1.35em;
+	position: relative;
+	top: .2rem;
+}
+
+.select-none {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}

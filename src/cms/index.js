@@ -2,6 +2,7 @@ import CMS from "netlify-cms";
 
 CMS.registerPreviewStyle("/cms/assets/style.css");
 CMS.registerPreviewStyle("/cms/assets/container.css");
+CMS.registerPreviewStyle("/cms/assets/material-icon.css");
 
 CMS.registerEditorComponent({
 	id: "container",
@@ -60,5 +61,29 @@ CMS.registerEditorComponent({
 		} else {
 			return `<div class="custom-block c-${obj.type}"><p class="c-title">${obj.title}</p><p>${obj.body}</p></div>`;
 		};
+	},
+});
+
+CMS.registerEditorComponent({
+	id: "navigation",
+	label: "Navigation",
+	fields: [
+		{
+			name: "icon",
+			label: "Icon",
+			widget: "string",
+		},
+	],
+	pattern: /\s?<Navigation item="(.+)"\/>/,
+	fromBlock: function(match) {
+		return {
+			icon: match[1],
+		};
+	},
+	toBlock: function(obj) {
+		return `<Navigation item="${obj.icon}"/>`;
+	},
+	toPreview: function(obj) {
+		return `<span id="NavigationVue" title="App navigation" class="app-navigation"><div class="material-holder app-icon select-none"><span class="material-icons select-none">${obj.icon}</span></div><span class="app-label">${obj.icon}</span></span>`;
 	},
 });
