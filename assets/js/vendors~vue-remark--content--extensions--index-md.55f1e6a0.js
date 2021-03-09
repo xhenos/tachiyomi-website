@@ -70,18 +70,6 @@ eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"I+eb\");\nvar a
 
 /***/ }),
 
-/***/ "UQSp":
-/*!****************************************************************!*\
-  !*** ./node_modules/@gridsome/vue-remark/src/VueRemarkRoot.js ***!
-  \****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// @vue/component\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'VueRemarkRoot',\n  render: function render(h) {\n    return h('div', null, this.$slots[\"default\"]);\n  }\n});\n\n//# sourceURL=webpack:///./node_modules/@gridsome/vue-remark/src/VueRemarkRoot.js?");
-
-/***/ }),
-
 /***/ "YuTi":
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
