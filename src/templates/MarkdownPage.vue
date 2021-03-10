@@ -170,6 +170,7 @@ export default {
 #Markdown {
 	img {
 		border-radius 8px
+		max-height 600px
 	}
 
 	a {

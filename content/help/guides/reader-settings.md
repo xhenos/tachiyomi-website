@@ -62,6 +62,7 @@ This allows you to control how the screen is going to be oriented.
 ## Background color <Badge text="Black" />
 This allows you to control what color the background should be in reader. Background color can either be **Black**, **Gray** or
 **White**.
+
 <Carousel v-bind:items="[
     {
         title: 'Black',
