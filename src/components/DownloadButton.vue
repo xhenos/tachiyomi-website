@@ -112,13 +112,13 @@ export default {
 		promptStable() {
 			const name = this.prettifyName;
 			console.log(name);
-			window.location.assign(this.data.downloadUrl);
+			window.location.assign(this.data.downloadUrl.browser_download_url);
 			// window.ga("send", "event", "Action", "Download", name);
 		},
 		promptPreview() {
 			const name = this.prettifyName;
 			console.log(`${name} Preview`);
-			window.location.assign(this.data.downloadUrl);
+			window.location.assign(this.data.downloadUrl.browser_download_url);
 			// window.ga("send", "event", "Action", "Download", `${name} Preview`);
 		},
 	},
