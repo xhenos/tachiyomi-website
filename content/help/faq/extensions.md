@@ -107,12 +107,12 @@ It might be because the title is worded differently. Follow any of the steps bel
 ### Why am I unable to download an extension that used to exist?
 Extensions tend to be removed for a variety of reasons: 
 
-- They become too much of a cat and mouse game to maintain due to the website owners changing the site frequently to deter scrapers.
-- The site scrambles images in more than one way, making it impossible to make every image unscrambleable.
-- A scanlator team requests the removal of their site from Tachiyomi.
-- The site is paywalled.
-- Require reverse engineering another app.
-- The site has been shut down.
+-   They become too much of a cat and mouse game to maintain due to the website owners changing the site frequently to deter scrapers.
+-   The site scrambles images in more than one way, making it impossible to make every image unscrambleable.
+-   A scanlator team requests the removal of their site from Tachiyomi.
+-   The site is paywalled.
+-   Require reverse engineering another app.
+-   The site has been shut down.
 
 A list of extensions that have been removed is available [here](https://github.com/tachiyomiorg/tachiyomi-extensions/issues/3475), but it does not include sites that have gone offline.
 

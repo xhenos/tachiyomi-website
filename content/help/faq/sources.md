@@ -47,10 +47,10 @@ Open the manga in <Navigation item="webview"/>, open a chapter, and wait for the
 ### How do I deal with duplicate chapters in MangaPark?
 To solve this issue, follow the below steps.
 
-1. Go to <Navigation item="browse"/> → <Navigation item="extensions"/>.
-1. Click on **MangaPark** extension and then **Chapter List Source**.
-1. Choose an option like **Smart list** or **Prioritize source**.
-1. Go back to **MangaPark**'s chapter list and refresh it.
+1.  Go to <Navigation item="browse"/> → <Navigation item="extensions"/>.
+1.  Click on **MangaPark** extension and then **Chapter List Source**.
+1.  Choose an option like **Smart list** or **Prioritize source**.
+1.  Go back to **MangaPark**'s chapter list and refresh it.
 
 ## Toonily 
 

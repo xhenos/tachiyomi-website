@@ -22,9 +22,9 @@ Enable it by going to <Navigation item="library"/> → <Navigation item="filter"
 ### How do I ignore duplicate chapters?
 Sometimes, you find a manga that is translated by more than one group. Because of this, you get multiple releases for each chapter in the manga. There are several ways to skip the duplicate chapters:
 
-* On the manga page, tap on <Navigation item="filter"/> → **Sort** and choose **By chapter number**. Doing this will cause the reader to skip duplicates as you read.
-* Bookmark or mark as read the unwanted chapters, then tap on <Navigation item="filter"/> → **Filter** and double-tap **Bookmarked** or single-tap **Unread**, respectively. This will hide any bookmarked or read chapters and skip them as you read along, as long as you have **Skip filtered chapters** enabled under <Navigation item="more"/> → <Navigation item="settings"/> → <Navigation item="settings_reader"/> → **Reading**.
-* Migrate to another source that does not have duplicates. For more information on how to migrate a manga, see the [migration guide](/help/guides/source-migration/).
+-   On the manga page, tap on <Navigation item="filter"/> → **Sort** and choose **By chapter number**. Doing this will cause the reader to skip duplicates as you read.
+-   Bookmark or mark as read the unwanted chapters, then tap on <Navigation item="filter"/> → **Filter** and double-tap **Bookmarked** or single-tap **Unread**, respectively. This will hide any bookmarked or read chapters and skip them as you read along, as long as you have **Skip filtered chapters** enabled under <Navigation item="more"/> → <Navigation item="settings"/> → <Navigation item="settings_reader"/> → **Reading**.
+-   Migrate to another source that does not have duplicates. For more information on how to migrate a manga, see the [migration guide](/help/guides/source-migration/).
 
 
 ### Why are some cover thumbnails corrupted, white, or showing a broken page?
@@ -77,10 +77,10 @@ Set download location to default by going to <Navigation item="more"/> → <Navi
 Sometimes some covers for local manga aren't displayed. Follow these steps to fix it:
 
 ::: guide
-1. Make sure you've created the right folder structure. To check it, open the manga with the missing cover and check if you can read chapters in the app. If not, follow [this](/help/guides/local-manga) guide first.
-1. Take a screenshot of which chapters you've read, and then remove manga from the library.
-1. Go to <Navigation item="more"/> → <Navigation item="settings"/> → <Navigation item="settings_advanced"/> and tap **Clear database**. This only affects manga that aren't in your library.
-1. Go to <Navigation item="browse"/> → **Local source** and find the manga. The cover should be fixed now. Add the manga back to your library, mark your read chapters, and re-add tracking if needed.
+1.  Make sure you've created the right folder structure. To check it, open the manga with the missing cover and check if you can read chapters in the app. If not, follow [this](/help/guides/local-manga) guide first.
+1.  Take a screenshot of which chapters you've read, and then remove manga from the library.
+1.  Go to <Navigation item="more"/> → <Navigation item="settings"/> → <Navigation item="settings_advanced"/> and tap **Clear database**. This only affects manga that aren't in your library.
+1.  Go to <Navigation item="browse"/> → **Local source** and find the manga. The cover should be fixed now. Add the manga back to your library, mark your read chapters, and re-add tracking if needed.
 :::
 
 ::: note
