@@ -1,56 +1,96 @@
 <template>
-	<div v-if="extensions.length > 0" class="extension-list">
-		<p>List of available extensions to use with Tachiyomi, you can download them from here or from the app.</p>
-		<div v-for="extensionGroup in extensions" :key="extensionGroup[0].lang">
-			<h3>
-				{{
-					extensionGroup[0].lang === "en"
-						? simpleLangName(extensionGroup[0].lang)
-						: langName(extensionGroup[0].lang)
-				}}
-				<span class="extensions-total">
-					Total:
-					<span class="extensions-total-sum">
-						{{ extensions.reduce((sum, item) => sum + item.length, 0) }}
-					</span>
-				</span>
-			</h3>
-			<div
-				v-for="extension in extensionGroup"
-				:id="extension.pkg.replace('eu.kanade.tachiyomi.extension.', '')"
-				:key="extension.apk"
-				class="anchor"
-			>
-				<div class="extension">
-					<a
-						:href="`#${extension.pkg.replace('eu.kanade.tachiyomi.extension.', '')}`"
-						@click.stop
-						aria-hidden="true"
-						class="header-anchor"
+	<div class="extension-list">
+		<span class="filters-list">
+			<input
+				type="search"
+				name="extension-search"
+				v-model="filters.search"
+				placeholder="Search extensions by name..."
+			/>
+
+			<div>
+				Sort by:
+				<br />
+				<input type="radio" id="Ascending" value="Ascending" v-model="filters.sort" />
+				<label for="Ascending">Ascending</label>
+				<br />
+				<input type="radio" id="Descending" value="Descending" v-model="filters.sort" />
+				<label for="Descending">Descending</label>
+			</div>
+
+			<div>
+				Display extensions with NSFW content?
+				<br />
+				<input type="radio" id="Yes" value="Yes" v-model="filters.nsfw" />
+				<label for="Yes">Yes</label>
+				<br />
+				<input type="radio" id="No" value="No" v-model="filters.nsfw" />
+				<label for="No">No</label>
+				<br />
+				<input type="radio" id="Neither" value="Don't care" v-model="filters.nsfw" />
+				<label for="Neither">Don't care</label>
+			</div>
+		</span>
+		<div class="extension-list">
+			<div v-if="filteredExtensions.length > 0" class="extension-list">
+				<br />
+				<p>
+					List of available extensions to use with Tachiyomi, you can download them from here or from the app.
+				</p>
+				<div v-for="extensionGroup in filteredExtensions" :key="extensionGroup[0].lang">
+					<h3>
+						{{
+							extensionGroup[0].lang === "en"
+								? simpleLangName(extensionGroup[0].lang)
+								: langName(extensionGroup[0].lang)
+						}}
+						<span class="extensions-total">
+							Total:
+							<span class="extensions-total-sum">
+								{{ filteredExtensions.reduce((sum, item) => sum + item.length, 0) }}
+							</span>
+						</span>
+					</h3>
+					<div
+						v-for="extension in extensionGroup"
+						:id="extension.pkg.replace('eu.kanade.tachiyomi.extension.', '')"
+						:key="extension.apk"
+						class="anchor"
 					>
-						#
-					</a>
-					<img class="extension-icon" :src="iconUrl(extension.apk)" width="42" height="42" />
-					<div class="extension-text">
-						<div class="upper">
-							<span class="font-semibold">{{ extension.name.split(": ")[1] }}</span>
-							<Badge :text="'v' + extension.version" />
-						</div>
-						<div class="down">
-							{{ extension.pkg.replace("eu.kanade.tachiyomi.extension.", "") }}
+						<div class="extension">
+							<a
+								:href="`#${extension.pkg.replace('eu.kanade.tachiyomi.extension.', '')}`"
+								@click.stop
+								aria-hidden="true"
+								class="header-anchor"
+							>
+								#
+							</a>
+							<img class="extension-icon" :src="iconUrl(extension.apk)" width="42" height="42" />
+							<div class="extension-text">
+								<div class="upper">
+									<span class="font-semibold">{{ extension.name.split(": ")[1] }}</span>
+									<Badge :text="'v' + extension.version" />
+								</div>
+								<div class="down">
+									{{ extension.pkg.replace("eu.kanade.tachiyomi.extension.", "") }}
+								</div>
+							</div>
+							<a :href="apkUrl(extension.apk)" class="extension-download" title="Download APK" download>
+								<DownloadIcon class="inline" size="1x" />
+								<span>Download</span>
+							</a>
 						</div>
 					</div>
-					<a :href="apkUrl(extension.apk)" class="extension-download" title="Download APK" download>
-						<DownloadIcon class="inline" size="1x" />
-						<span>Download</span>
-					</a>
 				</div>
 			</div>
+			<div v-else class="extension-list">
+				<p>
+					List of available extensions to use with Tachiyomi, you can download them from here or from the app.
+				</p>
+				<div class="circle-loader"></div>
+			</div>
 		</div>
-	</div>
-	<div v-else class="extension-list">
-		<p>List of available extensions to use with Tachiyomi, you can download them from here or from the app.</p>
-		<div class="circle-loader"></div>
 	</div>
 </template>
 
@@ -66,7 +106,45 @@ export default {
 	data() {
 		return {
 			extensions: [],
+			filters: {
+				search: "",
+				lang: [],
+				nsfw: "Don't care",
+				sort: "Ascending",
+			},
+			loading: true,
 		};
+	},
+	computed: {
+		filteredExtensions() {
+			const { extensions, filters } = this;
+
+			const filtered = [];
+
+			for (const group of extensions) {
+				let filteredGroup = filters.lang.length ? (filters.lang.includes(group[0].lang) ? group : []) : group;
+
+				if (filters.search) {
+					filteredGroup = filteredGroup.filter(ext =>
+						ext.name.toLowerCase().includes(filters.search.toLowerCase())
+					);
+				}
+
+				filteredGroup = filteredGroup.filter(ext =>
+					filters.nsfw === "Don't care" ? true : ext.nsfw === (filters.nsfw === "Yes" ? 1 : 0)
+				);
+
+				if (filters.sort && filters.sort === "Descending") {
+					filteredGroup = filteredGroup.reverse();
+				}
+
+				if (filteredGroup.length) {
+					filtered.push(filteredGroup);
+				}
+			}
+
+			return filtered;
+		},
 	},
 	mounted() {
 		this.$store.dispatch("fetchExtensions").then(data => {
