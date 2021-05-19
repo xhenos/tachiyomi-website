@@ -10,7 +10,6 @@ prev: /help/faq/application/
 next: /help/faq/extensions/
 ---
 
-# 🎆 THIS PAGE NEEDS UPDATING
 
 ## Downloads
 

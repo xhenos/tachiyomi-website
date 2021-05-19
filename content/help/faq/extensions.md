@@ -13,7 +13,6 @@ next: /help/faq/sources/
 import Tabs from "~/components/Tabs.vue";
 import Tab from "~/components/Tab.vue";
 
-# 🎆 THIS PAGE NEEDS UPDATING
 
 ## General
 
