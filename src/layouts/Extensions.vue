@@ -9,14 +9,12 @@
 				style="text-align: center;"
 			/>
 			<div class="select">
-				<select v-model="filters.lang">
-					<option
-						v-for="[group] in extensions"
-						:key="group.lang"
-						:label="group.lang == 'en' ? simpleLangName(group.lang) : langName(group.lang)"
-						:value="group.lang"
-					></option>
-				</select>
+				<div v-for="[group] in extensions" :key="group.lang">
+					<input type="checkbox" v-model="filters.lang" :id="group.lang" :value="group.lang" />
+					<label :for="group.lang">
+						{{ group.lang == "en" ? simpleLangName(group.lang) : langName(group.lang) }}
+					</label>
+				</div>
 			</div>
 			<div class="radio">
 				Sort by:
@@ -428,7 +426,7 @@ input[type=search] {
 	width: 100%;
 }
 
-select {
+.select {
 	display block
 	width 100%
 	padding 0.5rem 1rem 0.5rem 2.5rem
@@ -436,5 +434,11 @@ select {
 	border-radius 0.5rem
 	user-select none
 	background-color var(--background)
+	border:2px
+	solid #ccc;
+	overflow-y:
+	scroll;
+	height: 50px
+
 }
 </style>
