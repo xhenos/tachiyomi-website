@@ -6,29 +6,53 @@
 				name="extension-search"
 				v-model="filters.search"
 				placeholder="Search extensions by name..."
+				style="text-align: center;"
 			/>
-
-			<div>
+			<div class="select">
+				<select v-model="filters.lang">
+					<option
+						v-for="[group] in extensions"
+						:key="group.lang"
+						:label="group.lang == 'en' ? simpleLangName(group.lang) : langName(group.lang)"
+						:value="group.lang"
+					></option>
+				</select>
+			</div>
+			<div class="radio">
 				Sort by:
-				<br />
-				<input type="radio" id="Ascending" value="Ascending" v-model="filters.sort" />
-				<label for="Ascending">Ascending</label>
-				<br />
-				<input type="radio" id="Descending" value="Descending" v-model="filters.sort" />
-				<label for="Descending">Descending</label>
+				<input
+					label="Ascending"
+					type="radio"
+					id="Ascending"
+					name="Ascending"
+					value="Ascending"
+					v-model="filters.sort"
+					checked
+				/>
+				<input
+					label="Descending"
+					type="radio"
+					id="Descending"
+					name="Descending"
+					value="Descending"
+					v-model="filters.sort"
+				/>
 			</div>
 
-			<div>
+			<div class="radio">
 				Display extensions with NSFW content?
 				<br />
-				<input type="radio" id="Yes" value="Yes" v-model="filters.nsfw" />
-				<label for="Yes">Yes</label>
-				<br />
-				<input type="radio" id="No" value="No" v-model="filters.nsfw" />
-				<label for="No">No</label>
-				<br />
-				<input type="radio" id="Neither" value="Don't care" v-model="filters.nsfw" />
-				<label for="Neither">Don't care</label>
+				<input label="Yes" type="radio" id="Yes" name="Yes" value="Yes" v-model="filters.nsfw" />
+				<input label="No" type="radio" id="No" name="No" value="No" v-model="filters.nsfw" />
+				<input
+					label="Don't care"
+					type="radio"
+					id="Don't care"
+					name="Don't care"
+					value="Don't care"
+					v-model="filters.nsfw"
+					checked
+				/>
 			</div>
 		</span>
 		<div class="extension-list">
@@ -205,11 +229,26 @@ export default {
 		&:not(:first-of-type) {
 			.extensions-total {
 				display none
+
 			}
 		}
 	}
 }
 
+.filters-list {
+		display flex
+		flex-direction column
+		row-gap 1rem
+}
+input[type=search] {
+		display block
+		width 100%
+		padding 0.5rem 1rem 0.5rem 2.5rem
+		border-width 2px
+		border-radius 0.5rem
+		user-select none
+		background-color var(--background)
+}
 .extensions-total {
 	float right
 
@@ -349,5 +388,53 @@ export default {
 	to {
 		transform rotate(360deg)
 	}
+}
+
+.radio {
+	background: var(--background);
+	padding: 4px;
+	border-radius: 3px;
+	position: relative;
+}
+
+.radio input {
+	width: auto;
+	height: 100%;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: 2px;
+	padding: 4px 8px;
+	background: #454857;
+	color: #bdbdbdbd;
+	font-size: 14px;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	transition: all 100ms linear;
+}
+
+.radio input:checked {
+	background-image: linear-gradient(180deg, var(--primary), var(--primary));
+	color: #fff;
+	box-shadow: 0 1px 1px #0000002e;
+	text-shadow: 0 1px 0px #79485f7a;
+}
+
+.radio input:before {
+	content: attr(label);
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+select {
+	display block
+	width 100%
+	padding 0.5rem 1rem 0.5rem 2.5rem
+	border-width 2px
+	border-radius 0.5rem
+	user-select none
+	background-color var(--background)
 }
 </style>
