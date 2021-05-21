@@ -11,7 +11,7 @@
 			<div class="select">
 				<div v-for="[group] in extensions" :key="group.lang">
 					<input type="checkbox" v-model="filters.lang" :id="group.lang" :value="group.lang" />
-					<label :for="group.lang">
+					<label class="chips" :for="group.lang">
 						{{ group.lang == "en" ? simpleLangName(group.lang) : langName(group.lang) }}
 					</label>
 				</div>
@@ -427,7 +427,10 @@ input[type=search] {
 }
 
 .select {
-	display block
+	display: flex
+	-webkit-flex-wrap: wrap;
+  	flex-wrap: wrap;
+	align-content: flex-start;
 	width 100%
 	padding 0.5rem 1rem 0.5rem 2.5rem
 	border-width 2px
@@ -436,9 +439,62 @@ input[type=search] {
 	background-color var(--background)
 	border:2px
 	solid #ccc;
-	overflow-y:
-	scroll;
-	height: 50px
+	overflow-y auto
+	height: 125px
 
+}
+
+input[type=checkbox]{
+  position: absolute;
+  left: -9999px;
+}
+
+.chips {
+  display: block;
+  position: relative;
+  margin: 20px;
+  padding: 15px 30px 15px 62px;
+  border: 3px solid #435757;
+  border-radius: 100px;
+  color: #435757;
+  background-color: ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color .2s, box-shadow .2s;
+}
+
+.chips::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  width: 32px;
+  border: 3px solid #435757;
+  border-radius: 100px;
+  transition: background-color .2s;
+}
+
+.chips:first-of-type {
+  transform: translateX(-40px);
+}
+
+.chips:last-of-type {
+  transform: translateX(40px);
+}
+
+label:hover, input:focus + label {
+  box-shadow: 0 0 20px rgba(0, 0, 0, .6);
+}
+
+input:checked + label {
+  background-color: var(--primary);
+}
+
+input:checked + label::before {
+  background-color: #fff;
 }
 </style>
