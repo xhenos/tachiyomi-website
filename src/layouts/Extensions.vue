@@ -1,117 +1,115 @@
 <template>
 	<div class="extension-list">
-		<span class="filters-list">
-			<input
-				type="search"
-				name="extension-search"
-				v-model="filters.search"
-				placeholder="Search extensions by name..."
-				style="text-align: center;"
-			/>
-			<div class="select">
-				<div v-for="[group] in extensions" :key="group.lang">
-					<input type="checkbox" v-model="filters.lang" :id="group.lang" :value="group.lang" />
-					<label class="chips" :for="group.lang">
-						{{ group.lang == "en" ? simpleLangName(group.lang) : langName(group.lang) }}
-					</label>
+		<div v-if="filteredExtensions.length > 0" class="extension-list">
+			<span class="filters-list">
+				<input
+					type="search"
+					name="extension-search"
+					v-model="filters.search"
+					placeholder="Search extensions by name..."
+					style="text-align: center;"
+				/>
+				<div class="select">
+					<div v-for="[group] in extensions" :key="group.lang">
+						<input type="checkbox" v-model="filters.lang" :id="group.lang" :value="group.lang" />
+						<label class="chips" :for="group.lang">
+							{{ group.lang == "en" ? simpleLangName(group.lang) : langName(group.lang) }}
+						</label>
+					</div>
 				</div>
-			</div>
-			<div class="radio">
-				Sort by:
-				<input
-					label="Ascending"
-					type="radio"
-					id="Ascending"
-					name="Ascending"
-					value="Ascending"
-					v-model="filters.sort"
-					checked
-				/>
-				<input
-					label="Descending"
-					type="radio"
-					id="Descending"
-					name="Descending"
-					value="Descending"
-					v-model="filters.sort"
-				/>
-			</div>
+				<div class="radio">
+					Sort by:
+					<input
+						label="Ascending"
+						type="radio"
+						id="Ascending"
+						name="Ascending"
+						value="Ascending"
+						v-model="filters.sort"
+						checked
+					/>
+					<input
+						label="Descending"
+						type="radio"
+						id="Descending"
+						name="Descending"
+						value="Descending"
+						v-model="filters.sort"
+					/>
+				</div>
 
-			<div class="radio">
-				Display extensions with NSFW content?
-				<br />
-				<input label="Yes" type="radio" id="Yes" name="Yes" value="Yes" v-model="filters.nsfw" />
-				<input label="No" type="radio" id="No" name="No" value="No" v-model="filters.nsfw" />
-				<input
-					label="Don't care"
-					type="radio"
-					id="Don't care"
-					name="Don't care"
-					value="Don't care"
-					v-model="filters.nsfw"
-					checked
-				/>
-			</div>
-		</span>
-		<div class="extension-list">
-			<div v-if="filteredExtensions.length > 0" class="extension-list">
-				<br />
-				<p>
-					List of available extensions to use with Tachiyomi, you can download them from here or from the app.
-				</p>
-				<div v-for="extensionGroup in filteredExtensions" :key="extensionGroup[0].lang">
-					<h3>
-						{{
-							extensionGroup[0].lang === "en"
-								? simpleLangName(extensionGroup[0].lang)
-								: langName(extensionGroup[0].lang)
-						}}
-						<span class="extensions-total">
-							Total:
-							<span class="extensions-total-sum">
-								{{ filteredExtensions.reduce((sum, item) => sum + item.length, 0) }}
-							</span>
+				<div class="radio">
+					Display extensions with NSFW content?
+					<br />
+					<input label="Yes" type="radio" id="Yes" name="Yes" value="Yes" v-model="filters.nsfw" />
+					<input label="No" type="radio" id="No" name="No" value="No" v-model="filters.nsfw" />
+					<input
+						label="Don't care"
+						type="radio"
+						id="Don't care"
+						name="Don't care"
+						value="Don't care"
+						v-model="filters.nsfw"
+						checked
+					/>
+				</div>
+			</span>
+			<br />
+			<p>
+				List of available extensions to use with Tachiyomi, you can download them from here or from the app.
+			</p>
+			<div v-for="extensionGroup in filteredExtensions" :key="extensionGroup[0].lang">
+				<h3>
+					{{
+						extensionGroup[0].lang === "en"
+							? simpleLangName(extensionGroup[0].lang)
+							: langName(extensionGroup[0].lang)
+					}}
+					<span class="extensions-total">
+						Total:
+						<span class="extensions-total-sum">
+							{{ filteredExtensions.reduce((sum, item) => sum + item.length, 0) }}
 						</span>
-					</h3>
-					<div
-						v-for="extension in extensionGroup"
-						:id="extension.pkg.replace('eu.kanade.tachiyomi.extension.', '')"
-						:key="extension.apk"
-						class="anchor"
-					>
-						<div class="extension">
-							<a
-								:href="`#${extension.pkg.replace('eu.kanade.tachiyomi.extension.', '')}`"
-								@click.stop
-								aria-hidden="true"
-								class="header-anchor"
-							>
-								#
-							</a>
-							<img class="extension-icon" :src="iconUrl(extension.apk)" width="42" height="42" />
-							<div class="extension-text">
-								<div class="upper">
-									<span class="font-semibold">{{ extension.name.split(": ")[1] }}</span>
-									<Badge :text="'v' + extension.version" />
-								</div>
-								<div class="down">
-									{{ extension.pkg.replace("eu.kanade.tachiyomi.extension.", "") }}
-								</div>
+					</span>
+				</h3>
+				<div
+					v-for="extension in extensionGroup"
+					:id="extension.pkg.replace('eu.kanade.tachiyomi.extension.', '')"
+					:key="extension.apk"
+					class="anchor"
+				>
+					<div class="extension">
+						<a
+							:href="`#${extension.pkg.replace('eu.kanade.tachiyomi.extension.', '')}`"
+							@click.stop
+							aria-hidden="true"
+							class="header-anchor"
+						>
+							#
+						</a>
+						<img class="extension-icon" :src="iconUrl(extension.apk)" width="42" height="42" />
+						<div class="extension-text">
+							<div class="upper">
+								<span class="font-semibold">{{ extension.name.split(": ")[1] }}</span>
+								<Badge :text="'v' + extension.version" />
 							</div>
-							<a :href="apkUrl(extension.apk)" class="extension-download" title="Download APK" download>
-								<DownloadIcon class="inline" size="1x" />
-								<span>Download</span>
-							</a>
+							<div class="down">
+								{{ extension.pkg.replace("eu.kanade.tachiyomi.extension.", "") }}
+							</div>
 						</div>
+						<a :href="apkUrl(extension.apk)" class="extension-download" title="Download APK" download>
+							<DownloadIcon class="inline" size="1x" />
+							<span>Download</span>
+						</a>
 					</div>
 				</div>
 			</div>
-			<div v-else class="extension-list">
-				<p>
-					List of available extensions to use with Tachiyomi, you can download them from here or from the app.
-				</p>
-				<div class="circle-loader"></div>
-			</div>
+		</div>
+		<div v-else class="extension-list">
+			<p>
+				List of available extensions to use with Tachiyomi, you can download them from here or from the app.
+			</p>
+			<div class="circle-loader"></div>
 		</div>
 	</div>
 </template>
