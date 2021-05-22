@@ -9,6 +9,7 @@
 					placeholder="Search extensions by name..."
 					style="text-align: center;"
 				/>
+				<h2>Filter by Language</h2>
 				<div class="select">
 					<div v-for="[group] in extensions" :key="group.lang">
 						<input type="checkbox" v-model="filters.lang" :id="group.lang" :value="group.lang" />
@@ -40,7 +41,6 @@
 
 				<div class="radio">
 					Display extensions with NSFW content?
-					<br />
 					<input label="Yes" type="radio" id="Yes" name="Yes" value="Yes" v-model="filters.nsfw" />
 					<input label="No" type="radio" id="No" name="No" value="No" v-model="filters.nsfw" />
 					<input
@@ -391,11 +391,16 @@ input[type=search] {
 	padding: 4px;
 	border-radius: 3px;
 	position: relative;
+	margin-top 0.5rem
 }
 
 .radio input {
-	width: auto;
-	height: 100%;
+	display inline-flex
+	gap 0.5rem 0.5rem
+	width: 120px;
+	height: 50px;
+	align-items center
+	justify-content center
 	appearance: none;
 	outline: none;
 	cursor: pointer;
@@ -445,43 +450,39 @@ input[type=checkbox] {
   	transition: background-color .2s, box-shadow .2s;
 }
 
-.chips::before {
-  content: '-';
-  font-size: 130%;
-  text-align: center;
-  color var(--text)
-  display: block;
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 10px;
-  width: 32px;
-  border: 3px solid #435757;
-  border-radius: 100px;
-  transition: background-color .2s;
+.chips {
+	display inline-flex
+	padding 0.5rem 2rem
+	border 2px solid #808080
+	border-radius 99em
+	color var(--text)
+	align-items center
+	justify-content center
+	&::before {
+		content '-'
+		font-size 1.5rem
+		font-weight bold
+		text-align center
+		color grey
+		display inline-block
+		padding-right 0.5rem
+		transition border 2s linear
+	}
 }
-
-.chips:first-of-type {
-  transform: translateX(-40px);
+input[type=checkbox] {
+	appearance none
 }
-
-.chips:last-of-type {
-  transform: translateX(40px);
+label:hover,
+input:focus + label {
+	border 2px solid var(--primary)
 }
-
-label:hover, input:focus + label {
-  box-shadow: 0 0 20px rgba(0, 0, 0, .6);
-}
-
 input:checked + label {
-  border: 3px solid var(--primary);
+	border 2px solid var(--primary)
 }
 input:checked + label::before {
-  content: '✔';
-  display: inline-block;
-  font-weight:bold
-  text-align: center;
-  color var(--text)
-  background-color: var(--background);
+	content '✔'
+	color var(--text)
+	display inline-block
+	font-family arial, Segoe UI Symbol
 }
 </style>
