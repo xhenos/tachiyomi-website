@@ -1,25 +1,30 @@
 <template>
 	<div class="extension-list">
-		<div v-if="filteredExtensions.length > 0" class="extension-list">
+		<div v-if="extensions.length > 0" class="extension-list">
 			<span class="filters-list">
-				<input
-					type="search"
-					name="extension-search"
-					v-model="filters.search"
-					placeholder="Search extensions by name..."
-					style="text-align: center;"
-				/>
-				<h2>Filter by Language</h2>
-				<div class="select">
-					<div v-for="[group] in extensions" :key="group.lang">
-						<input type="checkbox" v-model="filters.lang" :id="group.lang" :value="group.lang" />
-						<label class="chips" :for="group.lang">
-							{{ group.lang == "en" ? simpleLangName(group.lang) : langName(group.lang) }}
-						</label>
-					</div>
+				<div class="search-bar">
+					<input
+						type="search"
+						name="extension-search"
+						v-model="filters.search"
+						placeholder="Search extensions by name..."
+						style="text-align: center;"
+					/>
 				</div>
+				<div class="select-container">
+					<p><b>Filter by Language</b></p>
+					<span class="select">
+						<div v-for="[group] in extensions" :key="group.lang">
+							<input type="checkbox" v-model="filters.lang" :id="group.lang" :value="group.lang" />
+							<label class="chips" :for="group.lang">
+								{{ group.lang == "en" ? simpleLangName(group.lang) : langName(group.lang) }}
+							</label>
+						</div>
+					</span>
+				</div>
+
 				<div class="radio">
-					Sort by:
+					<b>Sort by:</b>
 					<input
 						label="Ascending"
 						type="radio"
@@ -40,7 +45,7 @@
 				</div>
 
 				<div class="radio">
-					Display extensions with NSFW content?
+					<b>Display extensions with NSFW content?</b>
 					<input label="Yes" type="radio" id="Yes" name="Yes" value="Yes" v-model="filters.nsfw" />
 					<input label="No" type="radio" id="No" name="No" value="No" v-model="filters.nsfw" />
 					<input
@@ -470,9 +475,7 @@ input[type=checkbox] {
 		transition border 2s linear
 	}
 }
-input[type=checkbox] {
-	appearance none
-}
+
 label:hover,
 input:focus + label {
 	border 2px solid var(--primary)
