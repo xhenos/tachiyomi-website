@@ -406,8 +406,9 @@ input[type=search] {
 	cursor: pointer;
 	border-radius: 2px;
 	padding: 4px 8px;
-	background: #454857;
-	color: #bdbdbdbd;
+	background: var(--background)
+	border 1px solid #808080
+	color: var(--text)
 	font-size: 14px;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
