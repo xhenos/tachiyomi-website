@@ -424,47 +424,32 @@ input[type=search] {
 	width: 100%;
 }
 
-.select {
-	display: flex
-	-webkit-flex-wrap: wrap;
-  	flex-wrap: wrap;
-	align-content: flex-start;
-	width 100%
-	padding 0.5rem 1rem 0.5rem 2.5rem
-	border-width 2px
-	border-radius 0.5rem
-	user-select none
-	background-color var(--background)
-	border:2px
-	solid #ccc;
-	overflow-y auto
-	height: 125px
-
+.select{
+	display flex
+	gap 0.45rem 0.5rem
+	flex-wrap wrap
+	height 125px
+	overflow-x hidden
+	overflow-y scroll
 }
-
-input[type=checkbox]{
-  position: absolute;
-  left: -9999px;
+input[type=checkbox] {
+  appearance none
 }
-
 .chips {
-  display: block;
-  position: relative;
-  margin: 20px;
-  padding: 15px 30px 15px 62px;
-  border: 3px solid #435757;
-  border-radius: 100px;
-  color: #435757;
-  background-color: ffffff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, .2);
-  white-space: nowrap;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color .2s, box-shadow .2s;
+  	display inline-block
+  	position relative
+  	padding 15px 30px 15px 62px
+  	border 2px solid #808080
+  	border-radius 99em
+  	color var(--text)
+  	transition: background-color .2s, box-shadow .2s;
 }
 
 .chips::before {
-  content: '';
+  content: '-';
+  font-size: 130%;
+  text-align: center;
+  color var(--text)
   display: block;
   position: absolute;
   top: 10px;
@@ -489,10 +474,14 @@ label:hover, input:focus + label {
 }
 
 input:checked + label {
-  background-color: var(--primary);
+  border: 3px solid var(--primary);
 }
-
 input:checked + label::before {
-  background-color: #fff;
+  content: '✔';
+  display: inline-block;
+  font-weight:bold
+  text-align: center;
+  color var(--text)
+  background-color: var(--background);
 }
 </style>
