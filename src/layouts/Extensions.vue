@@ -8,7 +8,6 @@
 						name="extension-search"
 						v-model="filters.search"
 						placeholder="Search extensions by name..."
-						style="text-align: center;"
 					/>
 				</div>
 				<div class="select-container">
@@ -230,26 +229,27 @@ export default {
 		&:not(:first-of-type) {
 			.extensions-total {
 				display none
-
 			}
 		}
 	}
 }
 
 .filters-list {
-		display flex
-		flex-direction column
-		row-gap 1rem
+	display flex
+	flex-direction column
+	row-gap 1rem
 }
+
 input[type=search] {
-		display block
-		width 100%
-		padding 0.5rem 1rem 0.5rem 2.5rem
-		border-width 2px
-		border-radius 0.5rem
-		user-select none
-		background-color var(--background)
+	display block
+	width 100%
+	padding 0.5rem 1rem 0.5rem 2.5rem
+	border-width 2px
+	border-radius 0.5rem
+	user-select none
+	background-color var(--background)
 }
+
 .extensions-total {
 	float right
 
@@ -392,50 +392,50 @@ input[type=search] {
 }
 
 .radio {
-	background: var(--background);
-	padding: 4px;
-	border-radius: 3px;
-	position: relative;
+	background var(--background)
+	padding 4px
+	border-radius 3px
+	position relative
 	margin-top 0.5rem
 }
 
 .radio input {
 	display inline-flex
 	gap 0.5rem 0.5rem
-	width: 120px;
-	height: 50px;
+	width 120px
+	height 50px
 	align-items center
 	justify-content center
-	appearance: none;
-	outline: none;
-	cursor: pointer;
-	border-radius: 2px;
-	padding: 4px 8px;
-	background: var(--background)
+	appearance none
+	outline none
+	cursor pointer
+	border-radius 2px
+	padding 4px 8px
+	background var(--background)
 	border 1px solid #808080
-	color: var(--text)
-	font-size: 14px;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+	color var(--text)
+	font-size 14px
+	font-family system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	transition: all 100ms linear;
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+	transition all 100ms linear
 }
 
 .radio input:checked {
-	background-image: linear-gradient(180deg, var(--primary), var(--primary));
-	color: #fff;
-	box-shadow: 0 1px 1px #0000002e;
-	text-shadow: 0 1px 0px #79485f7a;
+	background-image linear-gradient(180deg, var(--primary), var(--primary))
+	color #fff
+	box-shadow 0 1px 1px #0000002e
+	text-shadow 0 1px 0px #79485f7a
 }
 
 .radio input:before {
-	content: attr(label);
-	display: inline-block;
-	text-align: center;
-	width: 100%;
+	content attr(label)
+	display inline-block
+	text-align center
+	width 100%
 }
 
-.select{
+.select {
 	display flex
 	gap 0.45rem 0.5rem
 	flex-wrap wrap
@@ -443,17 +443,19 @@ input[type=search] {
 	overflow-x hidden
 	overflow-y scroll
 }
+
 input[type=checkbox] {
-  appearance none
+	appearance none
 }
+
 .chips {
-  	display inline-block
-  	position relative
-  	padding 15px 30px 15px 62px
-  	border 2px solid #808080
-  	border-radius 99em
-  	color var(--text)
-  	transition: background-color .2s, box-shadow .2s;
+	display inline-block
+	position relative
+	padding 15px 30px 15px 62px
+	border 2px solid #808080
+	border-radius 99em
+	color var(--text)
+	transition background-color 0.2s, box-shadow 0.2s
 }
 
 .chips {
@@ -464,6 +466,7 @@ input[type=checkbox] {
 	color var(--text)
 	align-items center
 	justify-content center
+
 	&::before {
 		content '-'
 		font-size 1.5rem
@@ -480,9 +483,11 @@ label:hover,
 input:focus + label {
 	border 2px solid var(--primary)
 }
+
 input:checked + label {
 	border 2px solid var(--primary)
 }
+
 input:checked + label::before {
 	content '✔'
 	color var(--text)
